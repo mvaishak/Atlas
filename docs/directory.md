@@ -91,3 +91,20 @@ The original and actual recipe digests are separate identities under this explic
 `.local/m7-dsmlp-return-v2/20261105T040832Z-346/` contains the returned `real-http-v2-*`, `setup-v2-*` and `execution-inputs/` directories. The smoke directory contains three full case JSONs, worker/preflight/supervisor results, worker log and seven-file checksum manifest. Setup contains package versions, resource and immutable-input/update verification, setup log and exit status. Execution inputs contain the approved manifest and reconstructed recipe/provenance.
 
 `.local/m7-dsmlp-audit-v1/verify_returned_m7.py` performed standard-library hash and exact JSON comparisons without native model execution. `docs/reviews/M7.dsmlp-acceptance.validation.json` records the verified results and hashes of every returned file. The real-model HTTP gate passed in 58.17 seconds with 5.52 GiB sampled peak RSS, 4 CPUs, 32 GiB allocated RAM and clean shutdown. See `docs/reviews/M7.md` for scope, provenance-policy disclosure and remaining historical/metadata limitations. The user accepted M7 on 2026-11-05.
+
+## M8 reference profiling, 2026-11-05
+
+The user accepted M7 and approved the bounded CPU benchmark in [M8_PLAN.md](M8_PLAN.md). Private operator files are under `.local/m8-v1/`. This work reuses the existing remote M7 runtime; it does not copy indexes, replace dependencies or remove earlier evidence.
+
+| Path | Contents |
+| --- | --- |
+| `.local/m8-v1/workload.json` | Hash-selected 1,000-query development workload, source/audit pins and exclusion counts. Contains query text; keep private. |
+| `.local/m8-v1/saved-quality.json` | Corrected saved M4/M6 metric replay and whitespace-token error slices over 4,129 query groups. No new quality inference. |
+| `.local/m8-v1/saved-quality.analyzer-slices.v1.json` | Preserved intermediate analysis using analyzer-token slices; superseded by the corrected report. |
+| `.local/m8-v1/remote-tree/` | Exact transferred source snapshot and private approved inputs. Source-manifest hash is recorded in the M8 review. |
+| `.local/m8-v1/submission-attempt-*.log`, `cluster-run.log` | First admission-webhook timeout and subsequent official-specification submission. |
+| `.local/m8-v1/admitted-pod.json` | Actual image digest, limits/requests, command and cluster admission metadata. |
+| `.local/m8-v1/live-cluster.log`, `progress-summaries/`, `early-results/` | Provisional observations while the benchmark is active; these do not substitute for the complete checksummed return. |
+| `.local/m8-v1/final-*.log`, `dist/` | Local synthetic/static/package verification. Generated archives remain private. |
+
+The remote versioned directory is `atlasrank-m7-dsmlp-v1/m8-v1/` beneath the user's persistent home. `source/` and `inputs/` are immutable execution inputs; `run-v1/` holds the actual benchmark output. Each trial records `warmup.jsonl`, `requests.jsonl` and `summary.json`. Top-level evidence includes `preflight.json`, `environment.json`, `server-ready.json`, `server-shutdown.json`, `result.json`, logs and a complete `checksums.json`. The complete return is now in `.local/m8-v1/returned-root/`, including unchanged `source/`, approved `inputs/`, submitted pod metadata and `run-v1/`. `.local/m8-v1/benchmark-analysis.json` verifies all 27 raw trials; `return-validation.json` binds source/workload/dependency identities, cumulative time, final storage, model hash and pod termination/cleanup. `installed-environment.json` and its validation receipt verify all 56 pins; `terminated-pod.json` and `pod-cleanup.log` preserve exit 0 and deletion of the owned pod. Final apparent size, including directories, is 21,533,372 bytes; allocated blocks are 9,947,648 bytes. The 89 run-file checksums and 93 source-file hashes passed. M8 lead acceptance remains pending. This directory's complete byte count, including failed submissions and final receipts, is charged against the approved new-storage cap.

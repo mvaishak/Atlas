@@ -46,6 +46,10 @@ class Metrics:
             "dense_retrieval",
             "fusion",
             "features_and_prediction",
+            "feature_construction",
+            "ranker_prediction",
+            "ranking_order",
+            "request_dispatch",
             "total",
         }
         with self.lock:

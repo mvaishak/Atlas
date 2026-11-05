@@ -168,9 +168,10 @@ def create_app(
     async def log_request(
         request: Request, call_next: Callable[[Request], Awaitable[Response]]
     ) -> Response:
+        started = time.perf_counter()
         request_id = uuid.uuid4().hex
         request.state.request_id = request_id
-        started = time.perf_counter()
+        request.state.started = started
         try:
             response = await call_next(request)
         except Exception:
@@ -347,11 +348,14 @@ def create_app(
 
     @app.post("/search")
     def search(payload: SearchRequest, request: Request) -> JSONResponse:
+        # Includes middleware, validation, and threadpool dispatch; not pure queue time.
+        request_dispatch = (time.perf_counter() - request.state.started) * 1000
         if complete_configured and state.serving is None:
             return JSONResponse(status_code=503, content={"error": {"code": "bundle_unavailable"}})
         if state.serving is not None:
             try:
                 result = state.serving.search(payload.query, payload.pipeline, payload.top_k)
+                result["timing_ms"]["request_dispatch"] = request_dispatch
                 result["request_id"] = request.state.request_id
                 metrics.stages(payload.pipeline, result["timing_ms"])
                 return JSONResponse(result)
@@ -390,7 +394,10 @@ def create_app(
                 "bundle_id": state.index.bundle_id,
                 "results": [asdict(hit) for hit in hits],
                 "returned": len(hits),
-                "timing_ms": {"search": (time.perf_counter() - started) * 1000},
+                "timing_ms": {
+                    "search": (time.perf_counter() - started) * 1000,
+                    "request_dispatch": request_dispatch,
+                },
             }
         )
 

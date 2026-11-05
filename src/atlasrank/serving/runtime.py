@@ -125,7 +125,10 @@ class PipelineRuntime:
                     if self.ranking is None:
                         raise ValueError("Ranker unavailable")
                     stage = time.perf_counter()
-                    ranked = self.ranking.predict(query, [key for key, _ in ranked])
+                    ranked, ranking_timings = self.ranking.predict_with_timings(
+                        query, [key for key, _ in ranked]
+                    )
+                    timings.update(ranking_timings)
                     timings["features_and_prediction"] = (time.perf_counter() - stage) * 1000
         timings["total"] = (time.perf_counter() - started) * 1000
         return {

@@ -26,9 +26,11 @@ M5's small positive hybrid result has pipeline limitations. Historical padding, 
 
 M6's returned model and saved rankings passed independent hash, metric and paired-interval checks across 4,129 development queries. Some original execution records remain missing. Its negative pooled Track C result keeps model promotion pending. [M6 return verification](docs/reviews/M6.return.md), [M6 results](docs/reviews/M6.md)
 
-The M7 check used the frozen M4 pretrained encoder and M6 ranker in an isolated native CPU environment on DSMLP with 4 CPUs and 32 GiB RAM. It took 58.17 seconds including cleanup and reached 5.52 GiB sampled peak RSS. These are bounded correctness-smoke observations. Performance benchmarking starts in M8, which hasn't begun. [M7 review](docs/reviews/M7.md)
+The M7 check used the frozen M4 pretrained encoder and M6 ranker in an isolated native CPU environment on DSMLP with 4 CPUs and 32 GiB RAM. It took 58.17 seconds including cleanup and reached 5.52 GiB sampled peak RSS. These are bounded correctness-smoke observations. [M7 review](docs/reviews/M7.md)
 
 That run recorded the historical and runtime kernel/glibc identities separately under an explicit compatibility policy. The reconstructed reference recipe matched the preserved sealed digest. Docker fixture checks passed separately. Full neural startup inside that Docker image remains unverified. The user accepted M7 on 2026-11-05. [Serving operations](docs/M7_SERVING.md), [DSMLP procedure](docs/M7_DSMLP.md)
+
+M8 completed 27 CPU load trials and 27,000 measured requests. At concurrency 1, all 9,000 requests succeeded; pooled client p95 was 10.56 ms for BM25, 309.40 ms for RRF and 417.91 ms for M6. At concurrency 4/8, the existing admission policy rejected 16,787 of 18,000 attempts. Peak process-tree RSS was 5.42 GiB. The pod exited cleanly and new persistent files total 20.54 MiB. M8 acceptance and the proposed query-vector reuse study remain pending. [M8 measurements and review](docs/reviews/M8.md)
 
 ## Set up
 
