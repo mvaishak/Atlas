@@ -1,6 +1,6 @@
 # AtlasRank M7 serving reliability plan
 
-**Status:** Implementation and technical acceptance evidence are ready for review as of 2026-11-04 Pacific. Full real-model Linux startup and HTTP parity passed on DSMLP under the explicitly opted-in platform policy. Docker fixture checks passed separately. See [M7 review](reviews/M7.md). Human code approval and lead acceptance remain pending.
+**Status:** Implementation and technical acceptance evidence are ready for review as of 2026-11-04 Pacific. Full real-model Linux startup and HTTP parity passed on DSMLP under the explicitly opted-in platform policy. Docker fixture checks passed separately. See [M7 review](reviews/M7.md). The user accepted M7 on 2026-11-05.
 
 Implementation details and rulings: execution plan (`docs/superpowers/plans/2026-11-04-m7-serving.md`, private evidence). Artifact locations: [directory](directory.md).  
 **Predecessor:** M6 development evaluation completed  

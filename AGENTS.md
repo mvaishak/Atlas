@@ -1,3 +1,5 @@
+> M7 acceptance, 2026-11-05. The user accepted M7 and requested the next-step autonomy requirements. M8 preparation is authorized. Cluster execution budgets, M9 study variants and the final frozen evaluation require their concrete execution approvals.
+
 > Latest authorization, 2026-11-04. The user authorized repository cleanup, correction of issues, and publication of the cleaned source to `https://github.com/mvaishak/Atlas.git`. This authorizes the required source commit and push to that origin. Data, model/index artifacts, generated evidence and logs remain private. GitHub Actions remains manual-only. M8, new model jobs, model promotion, human code approval and lead acceptance remain separate gates.
 >
 > Current evidence. M5 supervised training and M6 returned-model/saved-ranking checks are verified. The M7 real-model HTTP gate passed on DSMLP with exact offline/HTTP features and predictions. Docker fixture checks passed separately. See [the M7 review](docs/reviews/M7.md). Preserve test isolation, the native Mac prohibition and all historical evidence.

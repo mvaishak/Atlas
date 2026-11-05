@@ -28,7 +28,7 @@ M6's returned model and saved rankings passed independent hash, metric and paire
 
 The M7 check used the frozen M4 pretrained encoder and M6 ranker in an isolated native CPU environment on DSMLP with 4 CPUs and 32 GiB RAM. It took 58.17 seconds including cleanup and reached 5.52 GiB sampled peak RSS. These are bounded correctness-smoke observations. Performance benchmarking starts in M8, which hasn't begun. [M7 review](docs/reviews/M7.md)
 
-That run recorded the historical and runtime kernel/glibc identities separately under an explicit compatibility policy. The reconstructed reference recipe matched the preserved sealed digest. Docker fixture checks passed separately. Full neural startup inside that Docker image remains unverified, and human code approval and lead acceptance are pending. [Serving operations](docs/M7_SERVING.md), [DSMLP procedure](docs/M7_DSMLP.md)
+That run recorded the historical and runtime kernel/glibc identities separately under an explicit compatibility policy. The reconstructed reference recipe matched the preserved sealed digest. Docker fixture checks passed separately. Full neural startup inside that Docker image remains unverified. The user accepted M7 on 2026-11-05. [Serving operations](docs/M7_SERVING.md), [DSMLP procedure](docs/M7_DSMLP.md)
 
 ## Set up
 

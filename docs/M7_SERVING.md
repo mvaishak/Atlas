@@ -1,6 +1,6 @@
 # M7 local serving
 
-The real-model HTTP gate passed on DSMLP on 2026-11-04 Pacific. The returned evidence verifies three 100-candidate search cases and three seven-candidate rerank cases, with exact features/predictions, 58.17-second supervised wall time, 5.52 GiB sampled peak RSS and clean shutdown. See [the M7 review](reviews/M7.md) for measured evidence and limitations. That run used an isolated CPU environment with the explicit platform-string compatibility policy described in [M7_DSMLP.md](M7_DSMLP.md). Default serving startup retains exact recipe identity checks. Human code approval remains pending.
+The real-model HTTP gate passed on DSMLP on 2026-11-04 Pacific. The returned evidence verifies three 100-candidate search cases and three seven-candidate rerank cases, with exact features/predictions, 58.17-second supervised wall time, 5.52 GiB sampled peak RSS and clean shutdown. See [the M7 review](reviews/M7.md) for measured evidence and limitations. That run used an isolated CPU environment with the explicit platform-string compatibility policy described in [M7_DSMLP.md](M7_DSMLP.md). Default serving startup retains exact recipe identity checks. The user accepted M7 on 2026-11-05.
 
 M7 reuses one FastAPI process and the frozen scoring modules. BM25 stays the default. `dense_m4`, `rrf_m4` and experimental `m6_xgb_m4` require a complete validated Linux CPU runtime. Test judgments never enter serving.
 
@@ -95,7 +95,7 @@ Docker reports 8,217,448,448 total VM RAM bytes (7.65 GiB), below the 8 GiB avai
 
 ## DSMLP acceptance
 
-The actual full neural CPU startup and HTTP gate passed in the separately approved DSMLP environment. See [the DSMLP execution record](M7_DSMLP.md) for exact measurements, provenance and historical preparation. The original local Docker VM remains below the full-model admission threshold. Human code approval and lead acceptance remain pending.
+The actual full neural CPU startup and HTTP gate passed in the separately approved DSMLP environment. See [the DSMLP execution record](M7_DSMLP.md) for exact measurements, provenance and historical preparation. The original local Docker VM remains below the full-model admission threshold. The user accepted M7 on 2026-11-05.
 
 ## Public source and private inputs
 

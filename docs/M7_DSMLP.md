@@ -2,7 +2,7 @@
 
 ## Verified execution result, 2026-11-04 Pacific
 
-The user completed run `20261105T040832Z-346` and returned the evidence. Local hash/metadata/capture verification passed. All three real-model search cases and three rerank cases passed exact parity. Startup to readiness was 49.645922 seconds, supervised wall time was 58.168239 seconds, sampled worker-tree peak RSS was 5.524242 GiB and reported process high-water RSS was 5.527264 GiB. Worker exit was 0 and HTTP shutdown completed. The remaining real-model HTTP technical gate is verified. Human review/code approval is pending.
+The user completed run `20261105T040832Z-346` and returned the evidence. Local hash/metadata/capture verification passed. All three real-model search cases and three rerank cases passed exact parity. Startup to readiness was 49.645922 seconds, supervised wall time was 58.168239 seconds, sampled worker-tree peak RSS was 5.524242 GiB and reported process high-water RSS was 5.527264 GiB. Worker exit was 0 and HTTP shutdown completed. The remaining real-model HTTP technical gate is verified. The user accepted M7 on 2026-11-05.
 
 The actual environment was Python 3.12.11, CPU Torch 2.14.1+cpu and the recovered dependency pins on Linux `6.1.0-51-amd64`, glibc 2.35, with 4 effective CPUs and 32 GiB cgroup memory. Model-admission effective available RAM was 28,225,970,176 bytes. Original and actual recipe identities are separately recorded. Original sealed bytes remain unchanged. This was the isolated native-environment route, separate from the old pinned Docker image tests.
 
