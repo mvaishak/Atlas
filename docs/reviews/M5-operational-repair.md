@@ -1,0 +1,18 @@
+# M5 operational repair v0.1
+
+The four launch defects are repaired locally. Training and GPU allocation remain unexecuted. The replacement proposal requires execution approval of its new source/export pins; the original proposal, v3 archive, launch-check evidence, M3/M4 references and earlier history are preserved.
+
+| Defect | Correction | Regression evidence |
+| --- | --- | --- |
+| Runner expects root settings absent from the nested proposal | `configuration.parse_manifest` resolves authoritative nested values into an internal runtime view. The replacement JSON contains no duplicated root settings. Missing fields, changed approved values, conflicting legacy aliases and inconsistent schedules fail before session creation. The budget reader and corrected notebook use the same nested settings. | Exact original and replacement proposals accepted; missing, conflicting and changed settings rejected. |
+| VRAM checks use total capacity as free memory | Launch and batch guards share `require_gpu_memory`, based on the first `mem_get_info` result. Evidence distinguishes driver free/total memory from Torch allocated/reserved/peak memory. | Simulated low free VRAM fails despite ample total capacity; exact free threshold passes; peak allocation overflow fails independently. |
+| CUDA loading maps CPU RNG tensors to CUDA | Checkpoints stage on CPU; model and optimizer loaders copy state to their existing parameter devices. CPU RNG and every CUDA RNG byte tensor are restored from CPU. | Existing active-dropout interrupted/resume parity passes at 1e-7; simulated two-device RNG states preserve values/order and reject device-count mismatch. Actual CUDA parity is explicitly skipped locally. |
+| Progress omits gradient and host observations | Existing callback receives the finite norm returned by the unchanged clipping operation. Progress records include norm before clipping, host available RAM/RSS, free/total/allocated/reserved/peak GPU memory and session step throughput. | Finite JSON schema and actual synthetic weight update pass; nonfinite gradients fail before optimizer updates. |
+
+No loss, sampler, optimizer settings, precision or model architecture changed. `scripts/prepare_m5_export.py` rebuilt the training-only export as `.local/colab/m5-training-input-v5.zip`. Independent ZIP comparison confirmed byte-identical training records, sampling plan and every model file relative to v3. Current source hashes match the export. Exact bytes and SHA-256 values are in validation evidence (`docs/reviews/M5-operational-repair.validation.json`, private evidence).
+
+Validation: Ruff passed; strict mypy passed for 17 source files; focused Pytest passed with 18 tests and one CUDA hardware test skipped. Notebook JSON/code syntax checks passed; every corrected notebook code cell is unexecuted. No real CUDA compatibility, memory or throughput claim follows from simulated tests. No development/test judgments were used for training, and no GPU job ran.
+
+Review files: `configs/m5-colab-pilot.corrected.proposed.json`, `notebooks/atlasrank_m5_colab_corrected.ipynb`, `tests/test_m5_operational.py`, and the repaired modules under `src/atlasrank/training/`. Original notebook/proposal/export remain available. The intermediate v4 export is also retained.
+
+Next gate is direct pilot execution approval of the replacement manifest and archive pins. The previously approved destination remains `/content/drive/MyDrive/AtlasRank/m5/pilot-l4-v1`; runtime/account/empty-directory checks and a separate ignored approved manifest with an exclusive token are still required before execution. No new design or architecture review is proposed.

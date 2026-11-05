@@ -1,0 +1,62 @@
+name: Source and fixture checks
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-14]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      UV_CACHE_DIR: ${{ github.workspace }}/.cache/uv
+      UV_PYTHON_INSTALL_DIR: ${{ github.workspace }}/.cache/python
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff # v6
+        with:
+          version: "0.8.22"
+      - run: uv python install 3.12.11
+      - name: Require reviewed dependency lock
+        run: test -f uv.lock && uv lock --check
+      - run: uv sync --locked --group dev
+      - run: uv pip check
+      - name: Check source publication boundaries
+        run: uv run --locked python scripts/check_repository.py
+      - run: uv run --locked python scripts/audit_environment.py
+      - run: uv run --locked ruff check .
+      - run: uv run --locked ruff format --check .
+      - run: uv run --locked mypy
+      - name: Exact offline and HTTP fixture prediction inputs
+        run: uv run --locked pytest -q tests/test_ranking_features.py tests/test_ranking_parity.py tests/test_m7_bundle.py tests/test_m7_api.py
+      - name: CPU native and serving fixtures (separate from Torch)
+        run: >-
+          uv run --locked pytest -q
+          --ignore=tests/test_m5_training_sanity.py
+          --ignore=tests/test_m5_retry_budget.py
+          --ignore=tests/test_m5_accumulation.py
+          --ignore=tests/test_m5_operational.py
+          --ignore=tests/test_m5_budget.py
+          --ignore=tests/test_dual_encoder_training.py
+          --ignore=tests/test_training_export.py
+          --ignore=tests/test_m6_ranker_runner.py
+      - name: Torch fixtures in a separate interpreter
+        run: >-
+          uv run --locked pytest -q
+          tests/test_m5_training_sanity.py
+          tests/test_m5_retry_budget.py
+          tests/test_m5_accumulation.py
+          tests/test_m5_operational.py
+          tests/test_m5_budget.py
+          tests/test_dual_encoder_training.py
+          tests/test_training_export.py
+      - name: Runner admission before scikit-learn environment mutation
+        run: uv run --locked pytest -q tests/test_m6_ranker_runner.py
+      - run: uv run --locked python -m atlasrank tracking-smoke --root .local/mlflow
+      - run: uv build

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "approved": false,
+  "scope": "M7_real_model_http_parity",
+  "cpus": 4,
+  "ram_gb": 32,
+  "gpus": 0,
+  "wall_seconds": 300,
+  "rss_bytes": 12884901888,
+  "minimum_available_bytes": 8589934592,
+  "image_local_reference": "atlasrank:m7-cpu",
+  "image_observed_id": "sha256:6cebdd22ab0c98d452771d93cbff8c1a4ba8e205ae134d7e8ba0d0242712cfb7",
+  "cluster_image_route": "unresolved_no_registry_publication_authorized",
+  "original_query_recipe_id": "a9ad487479249f1f86124025cbf0c7724c883c09f3030d2658ec169b6539b88a",
+  "native_math_threads": 1,
+  "execution_status": "not_executed_requires_user_approval"
+}

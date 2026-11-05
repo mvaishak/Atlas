@@ -1,0 +1,35 @@
+{
+  "catalog_sha256": "e099d952df2bb83e97fc1d53a7b02d2de8d936b126d1c636ab1369493fa20abf",
+  "catalog_rows": 1215854,
+  "model_weights_sha256": "42bfed57ca7c73e457040154aff8c88d6dc4248938e90c08c19e2617a16a2b23",
+  "model_files": {
+    "1_Pooling/config.json": "4fef0a7e8c8ee36e74c0fad89bab60ade72324442d43f559ea219bb7c2580710",
+    "2_Normalize/config.json": "cdb09dfca347a56aa2d691744e38d5ad3c7cbc2834e7181272b9a15328b82524",
+    "README.md": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+    "config.json": "6a7e130bc39a770a4b1a1ec78e95c8206c4dc3003e82b40ed939a1128bd18449",
+    "config_sentence_transformers.json": "ca7a8acf37b69aecffeb595c5adcadb62a0bd68691244bb3b4d7b9d4f2cbd895",
+    "model.safetensors": "42bfed57ca7c73e457040154aff8c88d6dc4248938e90c08c19e2617a16a2b23",
+    "modules.json": "3d02572a0455b832de67fb8e63a54981bc7e8b46e337c95e917bd8122a533bfd",
+    "sentence_bert_config.json": "3084164002c0bca01b0259c5327123803fce32e660a57feb93184ffead186fc8",
+    "tokenizer.json": "0d3aef594edd5f9b53e7f814277a9171dc70ff93eb66bda6e01f7aa53997d963",
+    "tokenizer_config.json": "0dc7daa3554987b91b499c1b9baa6c404cb7a4d082c1622611437916c70585f3"
+  },
+  "schema_version": 1,
+  "base_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "base_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "dimensions": 384,
+  "chunk_rows": 1024,
+  "chunks": 1188,
+  "input_zip_sha256": "592504988e429c5b64ac8f48da986131b19d7ff3d9b4802f68a08ed73e411b28",
+  "evaluation_contract_sha256": "884541b50d6bbe6efe128417ef5c3613d3c5ad5913929a71ef1b8888d521e106",
+  "development_sha256": "200edb6b54fe960183bc12d03ef785a4e64eb9ea2b4f3475e9d13f74d152ee59",
+  "lexical_manifest_sha256": "602a338a00ea59611ccf1e3d394ec08f8ce6d5e54ae547a695a068db6f0208df",
+  "historical_index": {
+    "index_sha256": "562faa580cf37dd3a2095ebd144ef1aa9a7de086795da16a8df1b2fe2441da20",
+    "ids_sha256": "121bd8225394a69889f261cab31a15fa842e75cbec13b3282c36437697ed10ec"
+  },
+  "bm25_export_sha256": "564a19b3d81feece4e0f46f1fd83f84d39af8476e2fc339d8ebd4b56a85c326a",
+  "m4_per_query_sha256": "bf0f7d2aa19d65a63dc191bb2b764b752f03700828d27de9c86e4fe336c1bb37",
+  "m5_compact_sha256": "3af74213e05ce6a000ee0c926dccdb014372f9983b6e534a4887bcb4c76d9d7e",
+  "faiss_version": "1.15.1"
+}

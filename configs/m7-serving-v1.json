@@ -1,0 +1,16 @@
+{
+  "components": {
+    "lexical": "data/esci/indexes/m3-bm25-v2",
+    "dense": "data/esci/infrastructure/m4-full-local-v1/attempt-bd83a1bac3b54cdab48ca32e79f0bf90/bundle",
+    "model": "data/esci/models/all-MiniLM-L6-v2-1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dense_config": "configs/dense.json",
+    "ranker": ".local/m6/drive files/sealed-model-v1"
+  },
+  "pipelines": [
+    "bm25",
+    "dense_m4",
+    "rrf_m4",
+    "m6_xgb_m4"
+  ],
+  "query_recipe_id": "a9ad487479249f1f86124025cbf0c7724c883c09f3030d2658ec169b6539b88a"
+}

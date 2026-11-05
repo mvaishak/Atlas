@@ -1,0 +1,21 @@
+{
+  "attention": "eager",
+  "autocast": false,
+  "batch_size": 32,
+  "cpu_reference_config": "configs/dense.json",
+  "cublas_workspace_config": ":4096:8",
+  "device": "cuda:0",
+  "dimensions": 384,
+  "dtype": "float32",
+  "full_catalog_encoding_authorized": false,
+  "gpu_name": "NVIDIA L4",
+  "max_length": 256,
+  "padding": "right_fixed_256",
+  "pooling": "attention_mask_mean_then_l2",
+  "preprocessing": "nfkc_casefold_whitespace_v1",
+  "schema_version": 1,
+  "seed": 42,
+  "tf32": false,
+  "threads": 1,
+  "vram_limit_bytes": 4294967296
+}

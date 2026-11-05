@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "pipeline_id": "bm25-title-lucene-v1",
+  "prepared_path": "data/esci/prepared-v4",
+  "prepared_audit_sha256": "467b743bb925e9263faf0be08c462e9f0be409a31129c33c962297bc745471d8",
+  "catalog_sha256": "70b15aa26c285d76d0ffc10a43f04392f514954c401c20fdeb5337bb429ad309",
+  "development_sha256": "200edb6b54fe960183bc12d03ef785a4e64eb9ea2b4f3475e9d13f74d152ee59",
+  "index_path": "data/esci/indexes/m3-bm25-v1",
+  "analyzer": "nfkc_casefold_unicode_alnum_v1",
+  "fields": ["product_title"],
+  "method": "lucene",
+  "k1": 1.5,
+  "b": 0.75,
+  "dtype": "float32",
+  "backend": "numpy",
+  "retrieval_k": 100,
+  "benchmark_queries": 200,
+  "benchmark_warmup": 20,
+  "benchmark_repetitions": 3,
+  "seed": 42
+}

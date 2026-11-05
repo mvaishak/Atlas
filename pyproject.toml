@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlasrank"
+version = "0.1.0"
+description = "Reproducible product retrieval and ranking experiments."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.14.1",
+    "sentence-transformers==6.1.0",
+    "transformers==5.20.2",
+    "huggingface-hub==1.33.0",
+    "safetensors==0.8.0",
+    "faiss-cpu==1.15.1",
+    "bm25s==0.2.14",
+    "fastapi==0.156.4",
+    "uvicorn==0.54.0",
+    "numpy==2.5.4",
+    "scipy==1.18.1",
+    "mlflow==3.17.1",
+    "polars==1.35.2",
+    "pyarrow==21.0.0",
+    "psutil==7.1.3",
+    "xgboost==3.1.1; sys_platform != 'linux'",
+    "xgboost-cpu==3.1.1; sys_platform == 'linux'",
+]
+
+[project.scripts]
+atlasrank = "atlasrank.__main__:main"
+
+[dependency-groups]
+dev = ["pytest==9.0.3", "ruff==0.17.1", "mypy==1.18.2", "httpx==0.28.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+atlasrank = ["py.typed", "serving/static/*.html", "serving/static/*.css"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-config --strict-markers"
+markers = ["tracking: requires the installed MLflow dependency; local SQLite/artifacts only"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".tmp", ".local", ".cache", "build", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests", "scripts"]
+
+[[tool.mypy.overrides]]
+module = ["mlflow", "mlflow.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["pyarrow", "pyarrow.*", "psutil"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["bm25s", "bm25s.*", "scipy", "scipy.*", "faiss", "faiss.*"]
+ignore_missing_imports = true
+
+[tool.uv]
+required-version = "==0.8.22"
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

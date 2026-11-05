@@ -1,0 +1,13 @@
+**
+!pyproject.toml
+!uv.lock
+!README.md
+!MANIFEST.in
+!src/
+!src/**
+!scripts/
+!scripts/serve_bundle.py
+!docker/
+!docker/Dockerfile.cpu
+**/__pycache__/
+**/*.pyc

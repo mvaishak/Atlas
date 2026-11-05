@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "provenance": "Synthetic golden corpus; no dataset products or queries",
+  "documents": [
+    {"product_locale": "us", "product_id": "d", "product_title": ""},
+    {"product_locale": "us", "product_id": "c", "product_title": "blue berry"},
+    {"product_locale": "us", "product_id": "b", "product_title": "green apple"},
+    {"product_locale": "us", "product_id": "a", "product_title": "red apple apple"}
+  ],
+  "queries": [
+    {"query": "apple", "expected_ids": ["a", "b"]},
+    {"query": " ＲＥＤ\t apple ", "expected_ids": ["a", "b"]},
+    {"query": "BERRY", "expected_ids": ["c"]},
+    {"query": "unknowntermzz", "expected_ids": []},
+    {"query": "!!!", "expected_ids": []}
+  ]
+}

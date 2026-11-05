@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "provenance": "Synthetic, independently calculated using linear gains and base-2 discounts; no ESCI rows",
+  "reverse": {
+    "judgments": {"a": "I", "b": "C", "c": "S", "d": "E"},
+    "ranking": ["a", "b", "c", "d"],
+    "expected_ndcg_at_10": 0.45593957346856512,
+    "expected_mrr_at_10": 0.25,
+    "expected_known_exact_recall": 1.0,
+    "expected_coverage": 1.0,
+    "formula": "(0.01/log2(3) + 0.1/2 + 1/log2(5)) / (1 + 0.1/log2(3) + 0.01/2)"
+  },
+  "unknown_before_exact": {
+    "judgments": {"a": "E", "b": "E"},
+    "ranking": ["unknown", "a"],
+    "expected_ndcg_at_10": 0.38685280723454163,
+    "expected_mrr_at_10": 0.5,
+    "expected_known_exact_recall": 0.5,
+    "expected_coverage": 0.5,
+    "formula": "(1/log2(3)) / (1 + 1/log2(3))"
+  }
+}

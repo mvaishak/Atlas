@@ -1,0 +1,80 @@
+{
+  "attention": "eager",
+  "batch_size": 32,
+  "catalog_sha256": "70b15aa26c285d76d0ffc10a43f04392f514954c401c20fdeb5337bb429ad309",
+  "device": "cpu",
+  "dimensions": 384,
+  "dtype": "float32",
+  "files": [
+    {
+      "bytes": 190,
+      "git_blob": "d1514c3162bbe87b343f565fadc62e6c06f04f03",
+      "name": "1_Pooling/config.json"
+    },
+    {
+      "bytes": 10502,
+      "git_blob": "44af2e3b0fa3a0b6239e48422972bf755f28fde0",
+      "name": "README.md"
+    },
+    {
+      "bytes": 612,
+      "git_blob": "72b987fd805cfa2b58c4c8c952b274a11bfd5a00",
+      "name": "config.json"
+    },
+    {
+      "bytes": 116,
+      "git_blob": "fd1b291129c607e5d49799f87cb219b27f98acdf",
+      "name": "config_sentence_transformers.json"
+    },
+    {
+      "bytes": 90868376,
+      "name": "model.safetensors",
+      "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db"
+    },
+    {
+      "bytes": 349,
+      "git_blob": "952a9b81c0bfd99800fabf352f69c7ccd46c5e43",
+      "name": "modules.json"
+    },
+    {
+      "bytes": 53,
+      "git_blob": "59d594003bf59880a884c574bf88ef7555bb0202",
+      "name": "sentence_bert_config.json"
+    },
+    {
+      "bytes": 112,
+      "git_blob": "e7b0375001f109a6b8873d756ad4f7bbb15fbaa5",
+      "name": "special_tokens_map.json"
+    },
+    {
+      "bytes": 466247,
+      "git_blob": "cb202bfe2e3c98645018a6d12f182a434c9d3e02",
+      "name": "tokenizer.json"
+    },
+    {
+      "bytes": 350,
+      "git_blob": "c79f2b6a0cea6f4b564fed1938984bace9d30ff0",
+      "name": "tokenizer_config.json"
+    },
+    {
+      "bytes": 231508,
+      "git_blob": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+      "name": "vocab.txt"
+    }
+  ],
+  "full_catalog_encoding_authorized": false,
+  "max_length": 256,
+  "model_path": "data/esci/models/all-MiniLM-L6-v2-1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "pilot_available_ram_bytes": 4294967296,
+  "pilot_encoding_seconds": 600,
+  "pilot_incremental_disk_bytes": 1073741824,
+  "pilot_titles": 4096,
+  "prepared_audit_sha256": "467b743bb925e9263faf0be08c462e9f0be409a31129c33c962297bc745471d8",
+  "prepared_path": "data/esci/prepared-v4",
+  "preprocessing": "nfkc_casefold_whitespace_v1",
+  "repo": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "schema_version": 1,
+  "seed": 42,
+  "threads": 1
+}

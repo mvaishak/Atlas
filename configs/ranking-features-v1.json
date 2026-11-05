@@ -1,0 +1,22 @@
+{
+  "schema_id": "d334d24f40983a69496da685e621dcd6c0e8ab6d124937f15ad61413db4ea2f3",
+  "schema": {
+    "version": 1,
+    "names": [
+      "bm25_score",
+      "dense_cosine",
+      "title_query_token_overlap",
+      "query_token_count",
+      "title_token_count"
+    ],
+    "dtype": "float32",
+    "analyzer": "nfkc_casefold_unicode_alnum_v1",
+    "row_order": "product_locale_product_id",
+    "overlap": "unique_token_jaccard_empty_union_zero",
+    "lengths": "analyzer_tokens_with_repetition",
+    "numeric_missing": "forbidden",
+    "empty_text": "normalized_empty_string_distinct_from_no_analyzer_tokens",
+    "dense": "native_indexflatip_subset_no_clipping"
+  },
+  "scope": "deterministic prediction-boundary fixture; no learned model"
+}

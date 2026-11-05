@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "query_ids": [
+    15,
+    806,
+    5504,
+    17584,
+    19954
+  ],
+  "selection": "Five fixed illustrative development examples: treadmill, water bottle, empty-BM25 query, headphones, running shoes. Not a quality benchmark.",
+  "report_sha256": "b889dd8dc0e559ee15ce21cb01c3e9a3f894f4ff8e55e2e0962a125d7cb08315",
+  "per_query_sha256": "bf0f7d2aa19d65a63dc191bb2b764b752f03700828d27de9c86e4fe336c1bb37",
+  "lexical_manifest_sha256": "602a338a00ea59611ccf1e3d394ec08f8ce6d5e54ae547a695a068db6f0208df",
+  "development_sha256": "200edb6b54fe960183bc12d03ef785a4e64eb9ea2b4f3475e9d13f74d152ee59",
+  "evaluation_contract_sha256": "884541b50d6bbe6efe128417ef5c3613d3c5ad5913929a71ef1b8888d521e106"
+}
