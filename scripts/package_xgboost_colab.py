@@ -136,7 +136,7 @@ def build_archive(repo: Path, output: Path) -> dict[str, Any]:
         "commit": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=repo, text=True
         ).strip(),
-        "snapshot": "allowlisted source bytes; commit identifies the base and file hashes identify content",
+        "snapshot": "allowlisted source bytes; commit names the base, hashes identify content",
         "required_pins": pins,
         "locked_constraints": constraints,
         "files": {
